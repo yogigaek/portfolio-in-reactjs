@@ -92,11 +92,9 @@ function Validasi() {
                     <input type="submit" placeholder="Submit" />
                 </div>
                 <br />
-                {Object.keys(formErrors).length === 0 && isSubmit ? (
+                {Object.keys(formErrors).length === 0 && isSubmit ?(
                     <div className="message">Data send successfully</div>
-                ) : (
-                    <pre>{JSON.stringify(formValues, undefined, 2)}</pre>
-                )}
+                ):(<div />)}
             </section>
         </form>
     </div>

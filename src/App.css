@@ -29,6 +29,7 @@
 .kampret, .kampret1, .kampret2{
   display: inline-block;
   width: 33%;
+  padding-left: 10px;
 }
 
 .message {
