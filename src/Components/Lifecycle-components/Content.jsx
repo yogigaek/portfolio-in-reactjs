@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Col, Form } from "react-bootstrap";
+import { Card, Col } from "react-bootstrap";
 import { messages } from "validatorjs/src/lang";
 
 export default class ContentNews extends React.Component {
@@ -10,7 +10,7 @@ export default class ContentNews extends React.Component {
         }
         this.setState({ loading: true });
         const data = fetch(
-            `https://newsapi.org/v2/everything?apiKey=b5305618e2b14b5fad3fd5edc494de20&q= + ${key}`
+            `https://newsapi.org/v2/everything?apiKey=7f237570bfa444a7b49515ab49db8476&q= + ${key}`
         );
         if (data) {
             data
@@ -55,17 +55,13 @@ export default class ContentNews extends React.Component {
                     <div className="row mt-3">
                         <h1>Latest News DB</h1>
                     </div>
-                    <Form.Group className="mb-3" controlId="">
-                        <Form.Control
-                            type="text"
-                            name="search"
-                            placeholder="Search News..."
+                    <div className="input-group mb-3" controlId="">
+                        <input type="text" className="form-control input-keyword" id="search" placeholder="Search News.."
                             value={this.state.value}
-                            onChange={(e) => this.changeHandler(e)}
-                        />
-                    </Form.Group>
+                            onChange={(e) => this.changeHandler(e)} />
+                    </div>
                     {!this.state.news ? (
-                        <div className="alert alert-secondary alert-sm" >
+                        <div className="alert alert-danger alert-sm" style={{ textAlign: "center" }}>
                             Data No Response !
                         </div>
                     ) : (
