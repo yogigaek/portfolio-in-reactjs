@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Col } from "react-bootstrap";
+import { Card, Col, Form } from "react-bootstrap";
 import { messages } from "validatorjs/src/lang";
 
 export default class ContentNews extends React.Component {
@@ -55,13 +55,17 @@ export default class ContentNews extends React.Component {
                     <div className="row mt-3">
                         <h1>Latest News DB</h1>
                     </div>
-                    <div className="input-group mb-3" controlId="">
-                        <input type="text" className="form-control input-keyword" id="search" placeholder="Search News.."
+                    <Form.Group className="mb-3" controlId="">
+                        <Form.Control
+                            type="text"
+                            name="search"
+                            placeholder="Search News..."
                             value={this.state.value}
-                            onChange={(e) => this.changeHandler(e)} />
-                    </div>
+                            onChange={(e) => this.changeHandler(e)}
+                        />
+                    </Form.Group>
                     {!this.state.news ? (
-                        <div className="alert alert-secondary alert-sm">
+                        <div className="alert alert-secondary alert-sm" >
                             Data No Response !
                         </div>
                     ) : (
