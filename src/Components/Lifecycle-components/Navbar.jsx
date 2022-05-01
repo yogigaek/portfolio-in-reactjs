@@ -5,7 +5,7 @@ export default class NavbarNews extends React.Component{
 
     render(){
         return(
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+            <nav className="navbar navbar-expand-lg">
                 <div className="container">
                     <a className="navbar-brand" href="#search">News App</a>
                     <a className="navbar-brand" href="#zero">Muhammad Yogi</a>

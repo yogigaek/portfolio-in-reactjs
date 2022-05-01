@@ -1,12 +1,13 @@
 import './App.css';
 import NavbarNews from './Components/Lifecycle-components/Navbar';
-import ContentNews from './Components/Lifecycle-components/Content';
+// import FetchHooks from './Components/hook/coba';
+import FunctionalHook from './Components/hook/hook';
 
 function App() {
   return (
     <div className="App">
       <NavbarNews />
-      <ContentNews />
+      <FunctionalHook />
     </div>
   );
 }
