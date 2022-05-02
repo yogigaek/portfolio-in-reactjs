@@ -12,7 +12,7 @@ const FunctionalHook = () => {
         if (value === ``){
             value = `all`
         }
-        fetch(`https://newsap.org/v2/everything?apiKey=b5305618e2b14b5fad3fd5edc494de20&q= ${value} `)
+        fetch(`https://newsapi.org/v2/everything?apiKey=b5305618e2b14b5fad3fd5edc494de20&q= ${value} `)
             .then((response) => response.json())
             .then((response) => {
                 console.log(response)
