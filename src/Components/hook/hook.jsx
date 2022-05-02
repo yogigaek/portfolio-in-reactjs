@@ -11,8 +11,8 @@ const FunctionalHook = () => {
         setLoading(true);
         if (value === ``){
             value = `all`
-        };
-        fetch(`https://newsapi.org/v2/everything?apiKey=7f237570bfa444a7b49515ab49db8476&q= ${value} `)
+        }
+        fetch(`https://newsap.org/v2/everything?apiKey=b5305618e2b14b5fad3fd5edc494de20&q= ${value} `)
             .then((response) => response.json())
             .then((response) => {
                 console.log(response)
@@ -39,6 +39,11 @@ const FunctionalHook = () => {
                     <input type="text" className="form-control input-keyword" id="search" placeholder="Search News.."
                         onChange={(e) => getData(e.target.value)} />
                 </div>
+                {error ? (
+                    <div className="alert alert-danger alert-sm" style={{ textAlign: "center" }}>
+                        Data No Response !
+                    </div>
+                ) : (``)}
                 {loading ? (<SpinnerDiamond className="spinner" size={90} thickness={180} speed={180} color={"rgba(172, 57, 57, 1)"} secondaryColor={"rgba(0, 0, 0, 0.44)"} />)
                     : ( 
                         data.map((n, index) => (
@@ -59,11 +64,6 @@ const FunctionalHook = () => {
                         ))
                     )
                 };
-                {error ? (
-                    <div className="alert alert-danger alert-sm" style={{ textAlign: "center" }}>
-                        Data No Response !
-                    </div>
-                ) : (``)}
                 
             </div>
         </div>
