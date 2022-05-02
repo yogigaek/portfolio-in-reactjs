@@ -7,13 +7,12 @@ const FunctionalHook = () => {
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(false);
 
-    useEffect(() => {
-        getData()
-    }, []);
-
-    const getData = (key) => {
+    const getData = async (value) => {
         setLoading(true);
-        fetch(`https://newsapi.org/v2/everything?apiKey=7f237570bfa444a7b49515ab49db8476&q= ${key} `)
+        if (value === ``){
+            value = `all`
+        };
+        fetch(`https://newsapi.org/v2/everything?apiKey=7f237570bfa444a7b49515ab49db8476&q= ${value} `)
             .then((response) => response.json())
             .then((response) => {
                 console.log(response)
@@ -23,8 +22,12 @@ const FunctionalHook = () => {
             .catch((err) => {
                 setError(true);
                 setLoading(false);
+                console.log(err)
             });
-    };
+    }
+    useEffect(() => {
+        getData();
+    }, [])
 
     return (
         <div className="container cardNews">
@@ -36,15 +39,10 @@ const FunctionalHook = () => {
                     <input type="text" className="form-control input-keyword" id="search" placeholder="Search News.."
                         onChange={(e) => getData(e.target.value)} />
                 </div>
-                {error ? (
-                    <div className="row alert alert-danger alert-sm" style={{ textAlign: "center" }}>
-                        Data No Response !
-                    </div>
-                ) : (``)}
                 {loading ? (<SpinnerDiamond className="spinner" size={90} thickness={180} speed={180} color={"rgba(172, 57, 57, 1)"} secondaryColor={"rgba(0, 0, 0, 0.44)"} />)
                     : ( 
-                        data.map((n) => (
-                            <div className="col-md-4 my-3">
+                        data.map((n, index) => (
+                            <div className="col-md-4 my-3" key={index} >
                                 <div className="card" style={{ width: "18rem" }}>
                                     <img src={n.urlToImage} className="card-img-top" alt="" />
                                     <div className="card-body">
@@ -61,6 +59,12 @@ const FunctionalHook = () => {
                         ))
                     )
                 };
+                {error ? (
+                    <div className="alert alert-danger alert-sm" style={{ textAlign: "center" }}>
+                        Data No Response !
+                    </div>
+                ) : (``)}
+                
             </div>
         </div>
     );
