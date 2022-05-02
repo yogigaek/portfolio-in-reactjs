@@ -1,33 +1,35 @@
 import React, { useState, useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { SpinnerDiamond } from 'spinners-react';
+import axios from "axios";
 
 const FunctionalHook = () => {
     const [data, setData] = useState([]);
-    const [error, setError] = useState(false);
+    const [error, setError] = useState(true);
     const [loading, setLoading] = useState(false);
 
     const getData = async (value) => {
         setLoading(true);
         if (value === ``){
-            value = `all`
+            value = `all`;
+        };
+        let response = await axios.get(
+            `https://newsapi.org/v2/everything?apiKey=b5305618e2b14b5fad3fd5edc494de20&q= ${value}`
+        );
+        if (!response){
+            setLoading(false);
+            setError(true);
+        }else{
+            setError(false);
+            setLoading(false);
+            setData(response.data.articles);
+            console.log(response.data.articles);
         }
-        fetch(`https://newsapi.org/v2/everything?apiKey=b5305618e2b14b5fad3fd5edc494de20&q= ${value} `)
-            .then((response) => response.json())
-            .then((response) => {
-                console.log(response)
-                setData(response.articles);
-                setLoading(false);
-            })
-            .catch((err) => {
-                setError(true);
-                setLoading(false);
-                console.log(err)
-            });
     }
+            
     useEffect(() => {
         getData();
-    }, [])
+    }, []);
 
     return (
         <div className="container cardNews">
