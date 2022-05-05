@@ -1,12 +1,9 @@
-import './App.css';
-import NavbarNews from './Components/Lifecycle-components/Navbar';
-import FunctionalHook from './Components/hook/hook';
+import Routing from './Components/Routing/index';
 
 function App() {
   return (
     <div className="App">
-      <NavbarNews />
-      <FunctionalHook />
+      <Routing />
     </div>
   );
 }

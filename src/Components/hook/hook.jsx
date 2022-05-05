@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { SpinnerDiamond } from 'spinners-react';
 import axios from "axios";
+import "./hooks.css";
 
 const FunctionalHook = () => {
     const [data, setData] = useState([]);
@@ -35,7 +36,7 @@ const FunctionalHook = () => {
         <div className="container cardNews">
             <div className="row">
                 <div className="row mt-3 ">
-                    <h1>Latest News DB</h1>
+                    <h1 className="hook">Latest News DB</h1>
                 </div>
                 <div className="input-group mb-3" controlid="">
                     <input type="text" className="form-control input-keyword" id="search" placeholder="Search News.."
@@ -57,7 +58,7 @@ const FunctionalHook = () => {
                                         <h6 className="card-subtitle mb-2 text-muted">{n.publishedAt}</h6>
                                         <h6 className="card-subtitle mb-2 text-muted">{n.source.name}</h6>
                                         <h6 className="card-subtitle mb-2">{n.description}</h6>
-                                        <a href={n.url} className="btn btn-primary">
+                                        <a href={n.url} className="btn btn-primary HOOKS">
                                             Read More
                                         </a>
                                     </div>
