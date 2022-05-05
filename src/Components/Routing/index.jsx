@@ -9,6 +9,7 @@ import LifecycleComponents from './../Lifecycle-components/index';
 import StylingComponents from './../Styling-components/index';
 import Hooks from './../hook/index';
 import Home from "../Navigation/Home";
+import Redux from './../Redux/index';
 
 const Routing = () => {
 
@@ -30,7 +31,8 @@ const Routing = () => {
                     <Route path="/StylingComponents" element={<StylingComponents />} />
                     <Route path="/FormValidation" element={<FormValidation />} />
                     <Route path="/LifecycleComponents" element={<LifecycleComponents />} />
-                    <Route path="/Hooks" element={<Hooks />} />                  
+                    <Route path="/Hooks" element={<Hooks />} />  
+                    <Route path="/Redux" element={<Redux />} />                
                 </Routes>
             </Router>
         </div>

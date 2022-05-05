@@ -38,5 +38,11 @@ export const SidebarData = [
         path: `/Hooks`,
         icon: <FaIcons.FaCartPlus />,
         cName: `nav-text`
+    },
+    {
+        title: `Redux`,
+        path: `/Redux`,
+        icon: <FaIcons.FaCartPlus />,
+        cName: `nav-text`
     }
 ];
